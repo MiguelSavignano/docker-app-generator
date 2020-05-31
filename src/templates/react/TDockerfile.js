@@ -6,7 +6,11 @@ import 'codemirror/lib/codemirror.css';
 import 'codemirror/theme/dracula.css';
 require('codemirror/mode/dockerfile/dockerfile');
 
-export const template = ({ node_version, javascrit_package_manager }) =>
+export const template = ({
+  node_version,
+  javascrit_package_manager,
+  private_npm,
+}) =>
   `# BUILD STAGE
 FROM node:${node_version}-alpine as build
 
@@ -14,18 +18,24 @@ FROM node:${node_version}-alpine as build
 
 WORKDIR /app
 ${
-  javascrit_package_manager == 'npm'
+  javascrit_package_manager === 'npm'
     ? `
 # Node modules cache layer
+${private_npm ? `ARG NPM_TOKEN` : ``}
 COPY package.json package-lock.json ./
-RUN npm ci
+${
+  private_npm
+    ? `# keep NPM_TOKEN private
+RUN echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > /app/.npmrc && \\
+  npm ci && \\
+  rm -f .npmrc`
+    : `RUN npm ci`
+}
 `
-    : `
-# Node modules cache layer
+    : `# Node modules cache layer
 COPY package.json yarn.lock ./
 RUN yarn install --pure-lockfile`
 }
-
 COPY ./src ./src
 COPY ./public ./public
 RUN npm run build

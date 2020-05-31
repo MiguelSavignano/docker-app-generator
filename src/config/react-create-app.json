@@ -41,6 +41,17 @@
           "type": "radio"
         }
       ]
+    },
+    {
+      "title": "Extra config",
+      "questions": [
+        {
+          "name": "private_npm",
+          "title": "Npm private repository",
+          "checked": false,
+          "type": "checkbox"
+        }
+      ]
     }
   ],
   "tabs": [
