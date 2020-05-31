@@ -10,6 +10,7 @@ export const template = ({
   node_version,
   javascrit_package_manager,
   private_npm,
+  server_conf,
 }) =>
   `# BUILD STAGE
 FROM node:${node_version}-alpine as build
@@ -47,14 +48,23 @@ RUN echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > /app/.npmrc && \\
 COPY ./src ./src
 COPY ./public ./public
 RUN npm run build
-
 # FINAL STAGE
-FROM nginx:1.15
+${(() => {
+  if (server_conf === 'nginx') {
+    return `FROM nginx:1.15
 COPY --from=build /app/build/ /usr/share/nginx/html/
 COPY nginx/conf.d/default.conf.template /etc/nginx/conf.d/default.conf.template
 
 ENV PORT=80
-CMD /bin/bash -c "envsubst < /etc/nginx/conf.d/default.conf.template > /etc/nginx/conf.d/default.conf && exec nginx -g 'daemon off;'"
+CMD /bin/bash -c "envsubst < /etc/nginx/conf.d/default.conf.template > /etc/nginx/conf.d/default.conf && exec nginx -g 'daemon off;'"`;
+  } else if (server_conf === 'nodejs') {
+    return `FROM node:${node_version}-alpine
+WORKDIR /app
+COPY --from=build /app/build /app/build
+`;
+  }
+})()}
+
 
 `;
 

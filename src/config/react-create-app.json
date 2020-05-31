@@ -35,9 +35,15 @@
       "questions": [
         {
           "name": "server_conf",
-          "title": "Nginx static config",
-          "checked": true,
+          "title": "Nginx static",
+          "checked": "checked",
           "value": "nginx",
+          "type": "radio"
+        },
+        {
+          "name": "server_conf",
+          "title": "Nodejs static",
+          "value": "nodejs",
           "type": "radio"
         }
       ]
