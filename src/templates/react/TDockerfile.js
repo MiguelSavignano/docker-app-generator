@@ -34,7 +34,15 @@ RUN echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > /app/.npmrc && \\
 `
     : `# Node modules cache layer
 COPY package.json yarn.lock ./
-RUN yarn install --pure-lockfile`
+${
+  private_npm
+    ? `# keep NPM_TOKEN private
+RUN echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > /app/.npmrc && \\
+  yarn install --pure-lockfile && \\
+  rm -f .npmrc`
+    : `RUN yarn install --pure-lockfile`
+}
+`
 }
 COPY ./src ./src
 COPY ./public ./public
