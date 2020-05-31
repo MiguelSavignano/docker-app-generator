@@ -68,13 +68,13 @@
       "questions": [
         {
           "name": "rails_worker",
-          "title": "You need workers with sidekiq?",
+          "title": "Sidekiq workers",
           "checked": true,
           "type": "checkbox"
         },
         {
           "name": "github_private",
-          "title": "You need github token for private gems?",
+          "title": "Github token for private gems?",
           "checked": false,
           "type": "checkbox"
         }
