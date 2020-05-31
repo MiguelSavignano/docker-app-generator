@@ -1,0 +1,56 @@
+{
+  "groups": [
+    {
+      "title": "Versions",
+      "description": "Select you best version.",
+      "questions": [
+        {
+          "title": "Nodejs version",
+          "name": "node_version",
+          "defaultValue": "10.16.3",
+          "type": "text"
+        }
+      ]
+    },
+    {
+      "title": "Package manager",
+      "questions": [
+        {
+          "title": "npm",
+          "name": "javascrit_package_manager",
+          "checked": "checked",
+          "value": "npm",
+          "type": "radio"
+        },
+        {
+          "title": "yarn",
+          "name": "javascrit_package_manager",
+          "value": "yarn",
+          "type": "radio"
+        }
+      ]
+    },
+    {
+      "title": "Server config",
+      "questions": [
+        {
+          "name": "server_conf",
+          "title": "Nginx static config",
+          "checked": true,
+          "value": "nginx",
+          "type": "radio"
+        }
+      ]
+    }
+  ],
+  "tabs": [
+    {
+      "label": "Dockerfile",
+      "component": "react/Dockerfile"
+    },
+    {
+      "label": ".dockerignore",
+      "component": "react/DockerIgnore"
+    }
+  ]
+}
