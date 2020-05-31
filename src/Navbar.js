@@ -59,7 +59,7 @@ export const Navbar = () => {
           <div className="navbar-item">
             <a
               class="github-fork-ribbon"
-              href="https://github.com/MiguelSavignano"
+              href="https://github.com/MiguelSavignano/docker-app-generator"
               data-ribbon="Fork me on GitHub"
               title="Fork me on GitHub"
             >
