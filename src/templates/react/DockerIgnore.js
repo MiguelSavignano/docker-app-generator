@@ -5,8 +5,8 @@ import { useStateValue } from '../../state';
 import 'codemirror/lib/codemirror.css';
 import 'codemirror/theme/dracula.css';
 
-export const template = () => `
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+export const template = () =>
+  `# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 # echo .git > .dockerignore && cat .gitignore >> .dockerignore
 
 .git

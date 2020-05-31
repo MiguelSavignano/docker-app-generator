@@ -6,8 +6,8 @@ import 'codemirror/lib/codemirror.css';
 import 'codemirror/theme/dracula.css';
 require('codemirror/mode/dockerfile/dockerfile');
 
-export const template = ({ node_version, javascrit_package_manager }) => `
-# BUILD STAGE
+export const template = ({ node_version, javascrit_package_manager }) =>
+  `# BUILD STAGE
 FROM node:${node_version}-alpine as build
 
 #RUN apk -u add git openssh

@@ -51,6 +51,10 @@
     {
       "label": ".dockerignore",
       "component": "react/DockerIgnore"
+    },
+    {
+      "label": "nginx/conf.d/default.conf.template",
+      "component": "frontend/NgixConf"
     }
   ]
 }
