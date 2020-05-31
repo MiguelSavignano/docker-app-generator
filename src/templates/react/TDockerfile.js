@@ -45,8 +45,7 @@ RUN echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > /app/.npmrc && \\
 }
 `
 }
-COPY ./src ./src
-COPY ./public ./public
+COPY . .
 RUN npm run build
 # FINAL STAGE
 ${(() => {
