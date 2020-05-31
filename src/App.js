@@ -9,7 +9,7 @@ import './App.css';
 import 'bulma/css/bulma.css';
 
 function App() {
-  const DEFAULT_APP = 'rails';
+  const DEFAULT_APP = 'react-create-app';
 
   const initialState = {
     form: initializeFormData(AppModes[DEFAULT_APP]),

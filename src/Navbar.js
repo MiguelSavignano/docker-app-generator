@@ -4,12 +4,12 @@ import { useStateValue, initializeFormData } from './state';
 
 const modeLinks = [
   {
-    name: 'rails',
-    label: 'Rails',
-  },
-  {
     name: 'react-create-app',
     label: 'React',
+  },
+  {
+    name: 'rails',
+    label: 'Rails',
   },
 ];
 
