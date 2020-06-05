@@ -2,7 +2,6 @@
   "groups": [
     {
       "title": "Versions",
-      "description": "Select you best version.",
       "questions": [
         {
           "title": "Ruby version",
