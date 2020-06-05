@@ -23,11 +23,11 @@ function App() {
         <div className="Navbar">
           <Navbar />
         </div>
-        <div class="Body columns">
-          <div class="column is-half">
+        <div className="Body columns">
+          <div className="column is-half">
             <Questions />
           </div>
-          <div class="column is-half">
+          <div className="column is-half">
             <FilesTabs />
           </div>
         </div>

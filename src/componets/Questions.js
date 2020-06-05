@@ -49,7 +49,7 @@ export const Questions = () => {
   return (
     <div className="columns is-multiline">
       {appMode.groups.map((question, index) => (
-        <div class="column is-half">
+        <div className="column is-half">
           <GroupQuestion key={`${question.name}-${index}`} {...question} />
         </div>
       ))}
