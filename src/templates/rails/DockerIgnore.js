@@ -1,10 +1,5 @@
 import React from 'react';
-import { UnControlled as CodeMirror } from 'react-codemirror2';
-import { useStateValue } from '../../state';
-
-import 'codemirror/lib/codemirror.css';
-import 'codemirror/theme/dracula.css';
-require('codemirror/mode/xml/xml');
+import { CodeSnippet } from '../CodeSnippet';
 
 export const template = () => `
 # Ignore all files from .gitignore
@@ -26,19 +21,4 @@ yarn-error.log
 .DS_Store
 `;
 
-export const DockerIgnore = () => {
-  const [{ form }] = useStateValue();
-
-  return (
-    <CodeMirror
-      value={template(form)}
-      options={{
-        mode: 'text',
-        theme: 'dracula',
-        lineNumbers: true,
-      }}
-    />
-  );
-};
-
-export default DockerIgnore;
+export default () => <CodeSnippet mode="text" template={template} />;

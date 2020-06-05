@@ -1,8 +1,6 @@
 import React from 'react';
 import { CodeSnippet } from '../CodeSnippet';
 
-import 'codemirror/lib/codemirror.css';
-import 'codemirror/theme/dracula.css';
 require('codemirror/mode/dockerfile/dockerfile');
 
 export const template = ({

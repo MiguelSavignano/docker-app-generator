@@ -1,9 +1,5 @@
 import React from 'react';
-import { UnControlled as CodeMirror } from 'react-codemirror2';
-import { useStateValue } from '../../state';
-
-import 'codemirror/lib/codemirror.css';
-import 'codemirror/theme/dracula.css';
+import { CodeSnippet } from '../CodeSnippet';
 
 export const template = () =>
   `# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
@@ -35,19 +31,4 @@ yarn-debug.log*
 yarn-error.log*
 `;
 
-const Dockerfile = () => {
-  const [{ form }] = useStateValue();
-
-  return (
-    <CodeMirror
-      value={template(form)}
-      options={{
-        mode: 'text',
-        theme: 'dracula',
-        lineNumbers: true,
-      }}
-    />
-  );
-};
-
-export default Dockerfile;
+export default () => <CodeSnippet mode="text" template={template} />;

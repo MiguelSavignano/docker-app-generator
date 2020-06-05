@@ -1,11 +1,7 @@
 import React from 'react';
-import { UnControlled as CodeMirror } from 'react-codemirror2';
-import { useStateValue } from '../../state';
+import { CodeSnippet } from '../CodeSnippet';
 
-import 'codemirror/lib/codemirror.css';
-import 'codemirror/theme/dracula.css';
 require('codemirror/mode/dockerfile/dockerfile');
-require('codemirror/mode/javascript/javascript');
 
 export const template = ({
   ruby_version,
@@ -151,19 +147,4 @@ COPY --from=production-builder --chown=deploy:deploy /app /app
 CMD [ "sh", "-c", "bundle exec rake db:create db:migrate && bundle exec rails server -b 0.0.0.0" ]
 `;
 
-const Dockerfile = () => {
-  const [{ form }] = useStateValue();
-
-  return (
-    <CodeMirror
-      value={template(form)}
-      options={{
-        mode: 'dockerfile',
-        theme: 'dracula',
-        lineNumbers: true,
-      }}
-    />
-  );
-};
-
-export default Dockerfile;
+export default () => <CodeSnippet mode="dockerfile" template={template} />;

@@ -1,9 +1,5 @@
 import React from 'react';
-import { UnControlled as CodeMirror } from 'react-codemirror2';
-import { useStateValue } from '../../state';
-
-import 'codemirror/lib/codemirror.css';
-import 'codemirror/theme/dracula.css';
+import { CodeSnippet } from '../CodeSnippet';
 
 export const template = () =>
   `server {
@@ -29,19 +25,4 @@ export const template = () =>
 }
 `;
 
-const NgixConf = () => {
-  const [{ form }] = useStateValue();
-
-  return (
-    <CodeMirror
-      value={template(form)}
-      options={{
-        mode: 'conf',
-        theme: 'dracula',
-        lineNumbers: true,
-      }}
-    />
-  );
-};
-
-export default NgixConf;
+export default () => <CodeSnippet mode="conf" template={template} />;
