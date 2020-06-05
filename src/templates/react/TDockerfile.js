@@ -1,6 +1,5 @@
 import React from 'react';
-import { UnControlled as CodeMirror } from 'react-codemirror2';
-import { useStateValue } from '../../state';
+import { CodeSnippet } from '../CodeSnippet';
 
 import 'codemirror/lib/codemirror.css';
 import 'codemirror/theme/dracula.css';
@@ -63,23 +62,8 @@ COPY --from=build /app/build /app/build
 `;
   }
 })()}
-
-
 `;
 
-const Dockerfile = () => {
-  const [{ form }] = useStateValue();
-
-  return (
-    <CodeMirror
-      value={template(form)}
-      options={{
-        mode: 'dockerfile',
-        theme: 'dracula',
-        lineNumbers: true,
-      }}
-    />
-  );
-};
+const Dockerfile = () => <CodeSnippet mode="dockerfile" template={template} />;
 
 export default Dockerfile;
