@@ -83,6 +83,7 @@ export const Navbar = () => {
         <div className="navbar-start">
           {modeLinks.map(({ name, label }) => (
             <a
+              key={label}
               role="link"
               className="navbar-item"
               onClick={onClickNavbatItem({ name })}

@@ -33,7 +33,7 @@ const Question = ({ name, title, type, value }) => {
   );
 };
 
-export const GroupQuestion = ({ description, title, questions }) => (
+export const GroupQuestion = ({ title, questions }) => (
   <div className="Card">
     <div className="CardTitle">{title}</div>
     <ul className="CardBody">
@@ -49,8 +49,8 @@ export const Questions = () => {
   return (
     <div className="columns is-multiline">
       {appMode.groups.map((question, index) => (
-        <div className="column is-half">
-          <GroupQuestion key={`${question.name}-${index}`} {...question} />
+        <div key={`${question.name}-${index}`} className="column is-half">
+          <GroupQuestion {...question} />
         </div>
       ))}
     </div>
