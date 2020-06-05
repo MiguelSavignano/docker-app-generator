@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import AppModes from './config';
 import { useStateValue, initializeFormData } from './state';
 import classNames from 'classnames';
+import './gh-fork-ribbon.css';
 
 const modeLinks = [
   {
@@ -38,7 +39,7 @@ const Burger = (props) => (
 
 const GithubRibbon = () => (
   <a
-    className="github-fork-ribbon"
+    className="github-fork-ribbon is-hidden-touch"
     href="https://github.com/MiguelSavignano/docker-app-generator"
     data-ribbon="Fork me on GitHub"
     title="Fork me on GitHub"
