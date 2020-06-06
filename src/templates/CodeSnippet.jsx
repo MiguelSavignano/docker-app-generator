@@ -11,7 +11,7 @@ const DownloadIcon = ({ fileName = 'snippet', text }) => {
 
   return (
     <a
-      href={`data:none/plain;charset=utf-8,${fileContent}`}
+      href={`data:text/plain;charset=utf-8,${fileContent}`}
       download={fileName}
     >
       Download
