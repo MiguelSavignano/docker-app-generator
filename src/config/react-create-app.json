@@ -65,15 +65,15 @@
   "tabs": [
     {
       "fileName": "Dockerfile",
-      "component": "react/Dockerfile"
+      "template": "react/Dockerfile"
     },
     {
       "fileName": ".dockerignore",
-      "component": "react/DockerIgnore"
+      "template": "react/DockerIgnore"
     },
     {
       "fileName": "nginx/conf.d/default.conf.template",
-      "component": "frontend/NgixConf"
+      "template": "frontend/NgixConf"
     }
   ]
 }

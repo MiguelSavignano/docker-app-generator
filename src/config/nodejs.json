@@ -53,11 +53,11 @@
   "tabs": [
     {
       "fileName": "Dockerfile",
-      "component": "nodejs/Dockerfile"
+      "template": "nodejs/Dockerfile"
     },
     {
       "fileName": ".dockerignore",
-      "component": "nodejs/DockerIgnore"
+      "template": "nodejs/DockerIgnore"
     }
   ]
 }

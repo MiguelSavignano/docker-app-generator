@@ -15,7 +15,7 @@ const DownloadIcon = ({ fileName = 'snippet', text }) => {
       href={`data:none/plain;charset=utf-8,${fileContent}`}
       download={fileName}
     >
-      <i class="fa fa-download" aria-hidden="true"></i>
+      <i className="fa fa-download" aria-hidden="true"></i>
     </a>
   );
 };

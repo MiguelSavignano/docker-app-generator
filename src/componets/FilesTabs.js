@@ -16,11 +16,11 @@ export const FilesTabs = () => {
           <Tab key={`${fileName}-${index}`}>{fileName}</Tab>
         ))}
       </TabList>
-      {appMode.tabs.map(({ component, ...rest }, index) => (
-        <TabPanel key={`${component}-${index}`}>
+      {appMode.tabs.map(({ template, ...rest }, index) => (
+        <TabPanel key={`${template}-${index}`}>
           {React.createElement(
-            Templates[component] ||
-              (() => <h1>Not found template: {component}</h1>),
+            Templates[template] ||
+              (() => <h1>Not found template: {template}</h1>),
             rest || {},
           )}
         </TabPanel>

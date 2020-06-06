@@ -1,6 +1,8 @@
 import React from 'react';
 import { CodeSnippet } from '../CodeSnippet';
 
+require('codemirror/mode/nginx/nginx');
+
 export const template = () =>
   `server {
   listen       \${PORT};
@@ -27,7 +29,7 @@ export const template = () =>
 
 export default (props) => (
   <CodeSnippet
-    mode="conf"
+    mode="nginx"
     template={template}
     {...props}
     fileName="default.conf.template"
