@@ -11,10 +11,11 @@ const DownloadIcon = ({ fileName = 'snippet', text }) => {
 
   return (
     <a
-      href={`data:text/plain;charset=utf-8,${fileContent}`}
+      className="link-icon-rounded"
+      href={`data:none/plain;charset=utf-8,${fileContent}`}
       download={fileName}
     >
-      Download
+      <i class="fa fa-download" aria-hidden="true"></i>
     </a>
   );
 };
@@ -26,10 +27,10 @@ export const CodeSnippet = ({ mode, template, fileName }) => {
 
   return (
     <>
-      <div className="clipboard-container">
+      <div className="code-actions-container">
         <DownloadIcon fileName={fileName} text={codeSnippet} />
         <Clipboard
-          className="clipboard-button"
+          className="button-icon-rounded"
           data-clipboard-text={codeSnippetState}
         >
           <i class="fa fa-clipboard" aria-hidden="true"></i>
