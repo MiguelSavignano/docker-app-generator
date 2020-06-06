@@ -1,6 +1,6 @@
 import React from 'react';
 import { CodeSnippet } from '../CodeSnippet';
-import { nodeModulesCacheLayer } from '../react/TDockerfile';
+import { nodeModulesCacheLayer } from '../nodejs/TDockerfile';
 
 require('codemirror/mode/dockerfile/dockerfile');
 

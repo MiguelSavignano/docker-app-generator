@@ -11,6 +11,10 @@ const modeLinks = [
     label: 'React',
   },
   {
+    name: 'nodejs',
+    label: 'Nodejs',
+  },
+  {
     name: 'rails',
     label: 'Rails',
   },

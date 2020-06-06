@@ -1,7 +1,5 @@
-import RailsConf from './rails.json';
-import ReactCreateApp from './react-create-app.json';
-
 export default {
-  rails: RailsConf,
-  'react-create-app': ReactCreateApp,
+  rails: require('./rails.json'),
+  'react-create-app': require('./react-create-app.json'),
+  nodejs: require('./nodejs.json'),
 };

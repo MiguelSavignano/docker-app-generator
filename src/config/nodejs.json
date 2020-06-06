@@ -30,24 +30,6 @@
       ]
     },
     {
-      "title": "Server config",
-      "questions": [
-        {
-          "name": "server_conf",
-          "title": "Nginx static",
-          "checked": "checked",
-          "value": "nginx",
-          "type": "radio"
-        },
-        {
-          "name": "server_conf",
-          "title": "Nodejs static",
-          "value": "nodejs",
-          "type": "radio"
-        }
-      ]
-    },
-    {
       "title": "Extra config",
       "questions": [
         {
@@ -62,15 +44,11 @@
   "tabs": [
     {
       "fileName": "Dockerfile",
-      "component": "react/Dockerfile"
+      "component": "nodejs/Dockerfile"
     },
     {
       "fileName": ".dockerignore",
-      "component": "react/DockerIgnore"
-    },
-    {
-      "fileName": "nginx/conf.d/default.conf.template",
-      "component": "frontend/NgixConf"
+      "component": "nodejs/DockerIgnore"
     }
   ]
 }
