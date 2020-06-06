@@ -4,10 +4,10 @@ export const StateContext = createContext();
 
 export const initializeFormData = (appMode) => {
   return appMode.groups.reduce((memo, group) => {
-    group.questions.map((question) => {
-      if (question.defaultValue != undefined) {
+    group.questions.forEach((question) => {
+      if (question.defaultValue !== undefined) {
         memo[question.name] = question.defaultValue;
-      } else if (question.checked != undefined) {
+      } else if (question.checked !== undefined) {
         memo[question.name] = question.value || question.checked;
       }
     });

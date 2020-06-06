@@ -5,21 +5,6 @@ import classNames from 'classnames';
 import './gh-fork-ribbon.css';
 import logoImage from './docker-logo.png';
 
-const modeLinks = [
-  {
-    name: 'react-create-app',
-    label: 'React',
-  },
-  {
-    name: 'nodejs',
-    label: 'Nodejs',
-  },
-  {
-    name: 'rails',
-    label: 'Rails',
-  },
-];
-
 const Logo = () => (
   <img src={logoImage} alt="docker-logo" width={50} height={50} />
 );
@@ -85,11 +70,11 @@ export const Navbar = () => {
       >
         <div className="navbar-start">
           {Object.entries(AppModes).map(([file, { name, label }]) => (
+            // eslint-disable-next-line jsx-a11y/anchor-is-valid
             <a
               key={label}
-              role="link"
               className={classNames('navbar-item', {
-                'is-active': selectedItem == label,
+                'is-active': selectedItem === label,
               })}
               onClick={onClickNavbatItem({ name, label })}
             >
