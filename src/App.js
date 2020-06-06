@@ -24,14 +24,14 @@ function App() {
         <div className="Navbar">
           <Navbar />
         </div>
-        <div className="Body columns">
-          <div className="column is-half">
+        <section className="section columns">
+          <section className="column is-half">
             <Questions />
-          </div>
-          <div className="column is-half">
+          </section>
+          <section className="column is-half">
             <FilesTabs />
-          </div>
-        </div>
+          </section>
+        </section>
       </div>
     </StateProvider>
   );
