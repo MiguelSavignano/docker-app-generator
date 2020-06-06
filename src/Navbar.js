@@ -3,6 +3,7 @@ import AppModes from './config';
 import { useStateValue, initializeFormData } from './state';
 import classNames from 'classnames';
 import './gh-fork-ribbon.css';
+import logoImage from './docker-logo.png';
 
 const modeLinks = [
   {
@@ -16,11 +17,7 @@ const modeLinks = [
 ];
 
 const Logo = () => (
-  <img
-    src="https://1067ec1jtn84131jsj2jmuv3-wpengine.netdna-ssl.com/wp-content/uploads/2017/11/icons-docker-lrg.png"
-    width={50}
-    height={50}
-  />
+  <img src={logoImage} alt="docker-logo" width={50} height={50} />
 );
 
 const Burger = (props) => (
