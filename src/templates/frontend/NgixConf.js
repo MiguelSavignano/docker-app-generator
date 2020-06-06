@@ -25,10 +25,11 @@ export const template = () =>
 }
 `;
 
-export default () => (
+export default (props) => (
   <CodeSnippet
     mode="conf"
     template={template}
+    {...props}
     fileName="default.conf.template"
   />
 );

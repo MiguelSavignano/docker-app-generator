@@ -62,8 +62,8 @@ COPY --from=build /app/build /app/build
 })()}
 `;
 
-const Dockerfile = () => (
-  <CodeSnippet mode="dockerfile" template={template} fileName="Dockerfile" />
+const Dockerfile = (props) => (
+  <CodeSnippet mode="dockerfile" template={template} {...props} />
 );
 
 export default Dockerfile;

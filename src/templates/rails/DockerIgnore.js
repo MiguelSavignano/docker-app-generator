@@ -21,6 +21,6 @@ yarn-error.log
 .DS_Store
 `;
 
-export default () => (
-  <CodeSnippet mode="text" template={template} fileName=".dockerignore" />
+export default (props) => (
+  <CodeSnippet mode="text" template={template} {...props} />
 );

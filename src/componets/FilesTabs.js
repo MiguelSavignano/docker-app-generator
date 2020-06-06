@@ -12,8 +12,8 @@ export const FilesTabs = () => {
   return (
     <Tabs>
       <TabList>
-        {appMode.tabs.map(({ label }, index) => (
-          <Tab key={`${label}-${index}`}>{label}</Tab>
+        {appMode.tabs.map(({ fileName }, index) => (
+          <Tab key={`${fileName}-${index}`}>{fileName}</Tab>
         ))}
       </TabList>
       {appMode.tabs.map(({ component, ...rest }, index) => (
