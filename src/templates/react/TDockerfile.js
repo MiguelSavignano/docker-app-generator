@@ -3,7 +3,10 @@ import { CodeSnippet } from '../CodeSnippet';
 
 require('codemirror/mode/dockerfile/dockerfile');
 
-const nodeModulesCacheLayer = ({ javascrit_package_manager, private_npm }) => {
+export const nodeModulesCacheLayer = ({
+  javascrit_package_manager,
+  private_npm,
+}) => {
   if (javascrit_package_manager === 'npm') {
     if (private_npm) {
       return [
