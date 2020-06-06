@@ -31,4 +31,6 @@ yarn-debug.log*
 yarn-error.log*
 `;
 
-export default () => <CodeSnippet mode="text" template={template} />;
+export default () => (
+  <CodeSnippet mode="text" template={template} fileName=".dockerignore" />
+);

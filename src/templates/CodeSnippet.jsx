@@ -6,7 +6,20 @@ import { useStateValue } from '../state';
 import 'codemirror/lib/codemirror.css';
 import 'codemirror/theme/dracula.css';
 
-export const CodeSnippet = ({ mode, template }) => {
+const DownloadIcon = ({ fileName = 'snippet', text }) => {
+  const fileContent = encodeURIComponent(text);
+
+  return (
+    <a
+      href={`data:none/plain;charset=utf-8,${fileContent}`}
+      download={fileName}
+    >
+      Download
+    </a>
+  );
+};
+
+export const CodeSnippet = ({ mode, template, fileName }) => {
   const [{ form }] = useStateValue();
   const codeSnippet = template(form);
   const [codeSnippetState, setCodeSnippet] = useState(codeSnippet);
@@ -14,6 +27,7 @@ export const CodeSnippet = ({ mode, template }) => {
   return (
     <>
       <div className="clipboard-container">
+        <DownloadIcon fileName={fileName} text={codeSnippet} />
         <Clipboard
           className="clipboard-button"
           data-clipboard-text={codeSnippetState}

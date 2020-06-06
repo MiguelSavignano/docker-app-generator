@@ -25,4 +25,10 @@ export const template = () =>
 }
 `;
 
-export default () => <CodeSnippet mode="conf" template={template} />;
+export default () => (
+  <CodeSnippet
+    mode="conf"
+    template={template}
+    fileName="default.conf.template"
+  />
+);

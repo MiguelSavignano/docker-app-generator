@@ -111,4 +111,6 @@ volumes:
 
 `;
 
-export default () => <CodeSnippet mode="yaml" template={template} />;
+export default () => (
+  <CodeSnippet mode="yaml" template={template} fileName="docker-compose.yml" />
+);

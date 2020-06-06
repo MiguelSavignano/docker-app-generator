@@ -147,4 +147,6 @@ COPY --from=production-builder --chown=deploy:deploy /app /app
 CMD [ "sh", "-c", "bundle exec rake db:create db:migrate && bundle exec rails server -b 0.0.0.0" ]
 `;
 
-export default () => <CodeSnippet mode="dockerfile" template={template} />;
+export default () => (
+  <CodeSnippet mode="dockerfile" template={template} fileName="Dockerfile" />
+);
