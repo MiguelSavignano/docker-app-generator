@@ -1,4 +1,7 @@
 {
+  "name": "react-create-app",
+  "label": "React",
+  "description": "Generate the necessary files to dockerize a <strong>React create app</strong>.",
   "groups": [
     {
       "title": "Versions",

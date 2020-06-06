@@ -1,4 +1,7 @@
 {
+  "name": "rails",
+  "label": "Rails",
+  "description": "Generate the necessary files to dockerize a <strong>Rails server</strong>.",
   "groups": [
     {
       "title": "Versions",
