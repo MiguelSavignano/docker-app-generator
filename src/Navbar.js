@@ -47,10 +47,12 @@ const GithubRibbon = () => (
 
 export const Navbar = () => {
   const [active, toogleNavbar] = useState(false);
+  const [selectedItem, setSelectedItem] = useState(modeLinks[0].label);
   const [, dispatch] = useStateValue();
 
-  const onClickNavbatItem = ({ name }) => () => {
+  const onClickNavbatItem = ({ name, label }) => () => {
     const form = initializeFormData(AppModes[name]);
+    setSelectedItem(label);
     dispatch({ form, appMode: AppModes[name] });
   };
 
@@ -82,8 +84,10 @@ export const Navbar = () => {
             <a
               key={label}
               role="link"
-              className="navbar-item"
-              onClick={onClickNavbatItem({ name })}
+              className={classNames('navbar-item', {
+                'is-active': selectedItem == label,
+              })}
+              onClick={onClickNavbatItem({ name, label })}
             >
               {label}
             </a>
