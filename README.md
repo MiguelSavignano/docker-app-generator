@@ -10,3 +10,11 @@ Single page application configure Dockerfile, docker-compose.yml, etc with difer
 npm install
 npm start
 ```
+
+### Templates
+
+Templates aviable
+
+- React create app
+- Nodejs server
+- Rails server
