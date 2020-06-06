@@ -13,12 +13,14 @@ export const CodeSnippet = ({ mode, template }) => {
 
   return (
     <>
-      <Clipboard
-        className="clipboard-button"
-        data-clipboard-text={codeSnippetState}
-      >
-        Cp
-      </Clipboard>
+      <div className="clipboard-container">
+        <Clipboard
+          className="clipboard-button"
+          data-clipboard-text={codeSnippetState}
+        >
+          <i class="fa fa-clipboard" aria-hidden="true"></i>
+        </Clipboard>
+      </div>
       <CodeMirror
         value={codeSnippet}
         options={{

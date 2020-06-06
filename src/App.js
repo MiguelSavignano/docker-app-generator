@@ -7,6 +7,7 @@ import { StateProvider, initializeFormData } from './state';
 
 import './App.css';
 import 'bulma/css/bulma.css';
+import './vendor/font-awesome-4.7.0/css/font-awesome.css';
 
 function App() {
   const DEFAULT_APP = 'react-create-app';
