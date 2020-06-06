@@ -37,6 +37,12 @@
           "title": "Npm private repository",
           "checked": false,
           "type": "checkbox"
+        },
+        {
+          "name": "typescript",
+          "title": "Typescript",
+          "checked": false,
+          "type": "checkbox"
         }
       ]
     }

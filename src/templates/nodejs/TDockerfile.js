@@ -46,14 +46,37 @@ export const nodeModulesCacheLayer = ({
   }
 };
 
-export const template = ({
+const templateTypescript = ({
   node_version,
   javascrit_package_manager,
   private_npm,
-}) =>
-  `# BUILD STAGE
+}) => `# BUILD STAGE
 FROM node:${node_version}-alpine as build
 
+WORKDIR /app
+
+${nodeModulesCacheLayer({ javascrit_package_manager, private_npm })}
+
+# Buid with dev dependencies (typescript)
+COPY . .
+RUN npm run build
+RUN rm -r node_modules
+
+# FINAL STAGE
+FROM node:${node_version}-alpine
+ENV NODE_ENV=production
+
+COPY --from=build /app/dist/ /app/dist/
+# Install only production node_modules
+${nodeModulesCacheLayer({ javascrit_package_manager, private_npm })}
+
+CMD ['npm', 'start']`;
+
+const templateJs = ({
+  node_version,
+  javascrit_package_manager,
+  private_npm,
+}) => `FROM node:${node_version}-alpine
 WORKDIR /app
 
 ENV NODE_ENV=production
@@ -61,9 +84,14 @@ ${nodeModulesCacheLayer({ javascrit_package_manager, private_npm })}
 
 COPY . .
 
-CMD ['npm', 'start']
-`;
+CMD ['npm', 'start']`;
 
+export const template = ({ typescript, ...rest }) => {
+  if (typescript) {
+    return templateTypescript(rest);
+  }
+  return templateJs(rest);
+};
 const Dockerfile = (props) => (
   <CodeSnippet mode="dockerfile" template={template} {...props} />
 );
