@@ -7,6 +7,7 @@ import { StateProvider, initializeFormData } from './state';
 
 import './App.css';
 import 'bulma/css/bulma.css';
+import './vendor/font-awesome-4.7.0/css/font-awesome.css';
 
 function App() {
   const DEFAULT_APP = 'react-create-app';
@@ -23,11 +24,11 @@ function App() {
         <div className="Navbar">
           <Navbar />
         </div>
-        <div class="Body columns">
-          <div class="column is-half">
+        <div className="Body columns">
+          <div className="column is-half">
             <Questions />
           </div>
-          <div class="column is-half">
+          <div className="column is-half">
             <FilesTabs />
           </div>
         </div>

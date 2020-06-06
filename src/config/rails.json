@@ -82,15 +82,15 @@
   ],
   "tabs": [
     {
-      "label": "Dockerfile",
+      "fileName": "Dockerfile",
       "component": "rails/Dockerfile"
     },
     {
-      "label": "docker-compose.yml",
+      "fileName": "docker-compose.yml",
       "component": "rails/DockerCompose"
     },
     {
-      "label": ".dockerignore",
+      "fileName": ".dockerignore",
       "component": "rails/DockerIgnore"
     }
   ]

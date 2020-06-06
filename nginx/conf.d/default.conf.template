@@ -1,9 +1,5 @@
-import React from 'react';
-import { CodeSnippet } from '../CodeSnippet';
-
-export const template = () =>
-  `server {
-  listen       \${PORT};
+server {
+  listen       ${PORT};
   server_name  localhost;
 
   #charset koi8-r;
@@ -23,13 +19,3 @@ export const template = () =>
       root   /usr/share/nginx/html;
   }
 }
-`;
-
-export default (props) => (
-  <CodeSnippet
-    mode="conf"
-    template={template}
-    {...props}
-    fileName="default.conf.template"
-  />
-);

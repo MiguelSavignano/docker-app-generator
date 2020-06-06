@@ -49,3 +49,47 @@
 .CodeMirror {
   height: 500px;
 }
+
+.button-icon-rounded {
+  cursor: pointer;
+  height: 32px;
+  width: 32px;
+  bottom: 0;
+  right: 0;
+  background: #339af0;
+  color: #fff;
+  border-radius: 50%;
+  border: initial;
+  z-index: 10;
+  transition: 0.2s;
+}
+
+.link-icon-rounded {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 32px;
+  width: 32px;
+  bottom: 0;
+  right: 0;
+  background: #339af0;
+  color: #fff;
+  border-radius: 50%;
+  border: initial;
+  z-index: 10;
+  transition: 0.2s;
+}
+
+.link-icon-rounded:hover {
+  color: #fff;
+}
+
+.code-actions-container {
+  display: flex;
+  justify-content: flex-end;
+  padding: 5px;
+}
+
+.code-actions-container * {
+  margin: 0px 5px;
+}

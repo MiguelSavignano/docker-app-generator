@@ -1,9 +1,6 @@
 import React from 'react';
-import { UnControlled as CodeMirror } from 'react-codemirror2';
-import { useStateValue } from '../../state';
+import { CodeSnippet } from '../CodeSnippet';
 
-import 'codemirror/lib/codemirror.css';
-import 'codemirror/theme/dracula.css';
 require('codemirror/mode/yaml/yaml');
 
 export const template = ({ rails_worker }) => `
@@ -114,19 +111,6 @@ volumes:
 
 `;
 
-const DockerCompose = () => {
-  const [{ form }] = useStateValue();
-
-  return (
-    <CodeMirror
-      value={template(form)}
-      options={{
-        mode: 'yaml',
-        theme: 'dracula',
-        lineNumbers: true,
-      }}
-    />
-  );
-};
-
-export default DockerCompose;
+export default (props) => (
+  <CodeSnippet mode="yaml" template={template} {...props} />
+);
