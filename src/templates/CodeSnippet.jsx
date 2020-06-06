@@ -13,6 +13,12 @@ export const CodeSnippet = ({ mode, template }) => {
 
   return (
     <>
+      <Clipboard
+        className="clipboard-button"
+        data-clipboard-text={codeSnippetState}
+      >
+        Cp
+      </Clipboard>
       <CodeMirror
         value={codeSnippet}
         options={{
@@ -24,9 +30,6 @@ export const CodeSnippet = ({ mode, template }) => {
           setCodeSnippet(codeMirrior.getValue());
         }}
       />
-      <Clipboard data-clipboard-text={codeSnippetState}>
-        Copy to clipboard
-      </Clipboard>
     </>
   );
 };
