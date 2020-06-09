@@ -1,6 +1,6 @@
 ## Docker generator
 
-Single page application configure Dockerfile, docker-compose.yml, etc with diferents configurations
+Single page application generate Dockerfile, docker-compose.yml, etc with diferents configurations
 
 [https://docker-generator.herokuapp.com/](https://docker-generator.herokuapp.com/)
 
@@ -13,7 +13,7 @@ npm start
 
 ### Templates
 
-Templates aviable
+Templates available
 
 - React create app
 - Nodejs server
