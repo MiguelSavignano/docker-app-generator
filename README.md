@@ -11,9 +11,7 @@ npm install
 npm start
 ```
 
-### Templates
-
-Templates available
+### Templates available
 
 - React create app
 - Nodejs server
