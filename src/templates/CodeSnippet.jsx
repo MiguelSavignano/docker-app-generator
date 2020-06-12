@@ -40,6 +40,7 @@ export const CodeSnippet = ({ mode, template, fileName }) => {
         value={codeSnippet}
         options={{
           mode,
+          lineWrapping: true,
           theme: 'dracula',
           lineNumbers: true,
         }}
