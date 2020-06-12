@@ -4,6 +4,7 @@ export default {
   'rails/DockerIgnore': require('./rails/DockerIgnore').default,
   'react/Dockerfile': require('./react/TDockerfile').default,
   'react/DockerIgnore': require('./react/DockerIgnore').default,
+  'react/DockerCompose': require('./react/DockerCompose').default,
   'frontend/NgixConf': require('./frontend/NgixConf').default,
   'nodejs/Dockerfile': require('./nodejs/TDockerfile').default,
   'nodejs/DockerIgnore': require('./nodejs/DockerIgnore').default,

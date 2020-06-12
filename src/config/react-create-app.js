@@ -73,6 +73,10 @@ module.exports = {
       template: 'react/DockerIgnore',
     },
     {
+      fileName: 'docker-compose.yml',
+      template: 'react/DockerCompose',
+    },
+    {
       fileName: 'nginx/conf.d/default.conf.template',
       template: 'frontend/NgixConf',
     },
