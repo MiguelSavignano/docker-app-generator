@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useState } from 'react';
 import AppModes from './config';
 import { useStateValue, initializeFormData } from './state';
@@ -45,6 +46,9 @@ export const Navbar = () => {
     dispatch({ form, appMode: AppModes[name] });
   };
 
+  Object.entries(AppModes).forEach(([file, { name, label }]) =>
+    console.log('NavbarItems', { name, label }),
+  );
   return (
     <nav
       className="navbar is-fixed-top is-link"
@@ -70,7 +74,6 @@ export const Navbar = () => {
       >
         <div className="navbar-start">
           {Object.entries(AppModes).map(([file, { name, label }]) => (
-            // eslint-disable-next-line jsx-a11y/anchor-is-valid
             <a
               key={label}
               className={classNames('navbar-item', {

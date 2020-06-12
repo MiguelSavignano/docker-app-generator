@@ -33,7 +33,7 @@ export const CodeSnippet = ({ mode, template, fileName }) => {
           className="button-icon-rounded"
           data-clipboard-text={codeSnippetState}
         >
-          <i class="fa fa-clipboard" aria-hidden="true"></i>
+          <i className="fa fa-clipboard" aria-hidden="true"></i>
         </Clipboard>
       </div>
       <CodeMirror
