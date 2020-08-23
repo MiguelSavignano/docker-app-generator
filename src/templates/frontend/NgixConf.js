@@ -1,11 +1,4 @@
-import React from 'react';
-import { CodeSnippet } from '../CodeSnippet';
-import ejs from 'ejs';
-
-require('codemirror/mode/nginx/nginx');
-
-const text = `
-server {
+module.exports.default = `server {
   listen       \${PORT};
   server_name  localhost;
 
@@ -26,14 +19,3 @@ server {
       root   /usr/share/nginx/html;
   }
 `;
-
-export const template = () => ejs.render(text);
-
-export default (props) => (
-  <CodeSnippet
-    mode="nginx"
-    template={template}
-    {...props}
-    fileName="default.conf.template"
-  />
-);
