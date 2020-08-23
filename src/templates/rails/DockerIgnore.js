@@ -1,7 +1,4 @@
-import React from 'react';
-import { CodeSnippet } from '../CodeSnippet';
-
-export const template = () => `
+module.exports.default = `
 # Ignore all files from .gitignore
 # echo .git > .dockerignore && cat .gitignore >> .dockerignore
 .git
@@ -20,7 +17,3 @@ coverage
 yarn-error.log
 .DS_Store
 `;
-
-export default (props) => (
-  <CodeSnippet mode="text" template={template} {...props} />
-);

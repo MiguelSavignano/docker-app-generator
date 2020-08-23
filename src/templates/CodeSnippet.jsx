@@ -6,6 +6,20 @@ import { useStateValue } from '../state';
 import 'codemirror/lib/codemirror.css';
 import 'codemirror/theme/dracula.css';
 
+import 'codemirror/mode/nginx/nginx'
+import 'codemirror/mode/dockerfile/dockerfile'
+import 'codemirror/mode/yaml/yaml'
+
+const modeMapping = (fileName) => {
+  if (new RegExp('\.(yaml|yml)').test(fileName)){
+    return 'yaml'
+  }
+  if (fileName === 'Dockerfile') {
+    return 'dockerfile'
+  }
+  return 'text'
+}
+
 const DownloadIcon = ({ fileName = 'snippet', text }) => {
   const fileContent = encodeURIComponent(text);
 
@@ -24,7 +38,7 @@ export const CodeSnippet = ({ mode, template, fileName }) => {
   const [{ form }] = useStateValue();
   const codeSnippet = template(form);
   const [codeSnippetState, setCodeSnippet] = useState(codeSnippet);
-
+  mode = mode || modeMapping(fileName)
   return (
     <>
       <div className="code-actions-container">

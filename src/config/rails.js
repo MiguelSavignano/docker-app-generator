@@ -65,7 +65,6 @@ module.exports = {
         },
       ],
     },
-
     {
       title: 'Extra config',
       questions: [
@@ -78,6 +77,12 @@ module.exports = {
         {
           name: 'github_private',
           title: 'Github token for private gems?',
+          checked: false,
+          type: 'checkbox',
+        },
+        {
+          name: 'private_npm',
+          title: 'Npm private repository',
           checked: false,
           type: 'checkbox',
         },

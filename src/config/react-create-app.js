@@ -66,17 +66,14 @@ module.exports = {
   tabs: [
     {
       fileName: 'Dockerfile',
-      mode: 'dockerfile',
       template: 'react/Dockerfile',
     },
     {
       fileName: '.dockerignore',
-      mode: 'text',
       template: 'react/DockerIgnore',
     },
     {
       fileName: 'docker-compose.yml',
-      mode: 'yaml',
       template: 'react/DockerCompose',
     },
     {

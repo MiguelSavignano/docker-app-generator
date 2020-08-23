@@ -27,4 +27,6 @@ COPY package.json yarn.lock ./
 RUN yarn install --pure-lockfile
 <% } -%>`;
 
-module.exports.default = ``;
+module.exports.default = `
+
+FROM nodejs`;
