@@ -1,4 +1,4 @@
-module.exports.nodeModulesCacheLayer = `# Node modules cache layer
+const nodeModulesCacheLayer = `# Node modules cache layer
 <% if (javascrit_package_manager === 'npm' && private_npm) { -%>
 ARG NPM_TOKEN
 COPY package.json package-lock.json ./
@@ -27,6 +27,15 @@ COPY package.json yarn.lock ./
 RUN yarn install --pure-lockfile
 <% } -%>`;
 
-module.exports.default = `
+module.exports.nodeModulesCacheLayer = nodeModulesCacheLayer;
 
+module.exports.default = `FROM node:<%= node_version %>-alpine
+WORKDIR /app
+
+ENV NODE_ENV=production
+${nodeModulesCacheLayer}
+
+COPY . .
+
+CMD ['npm', 'start']
 FROM nodejs`;
