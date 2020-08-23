@@ -1,8 +1,4 @@
-import React from 'react';
-import { CodeSnippet } from '../CodeSnippet';
-
-export const template = () =>
-  `# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+module.exports.default = `# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 # echo .git > .dockerignore && cat .gitignore >> .dockerignore
 
 .git
@@ -30,7 +26,3 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 `;
-
-export default (props) => (
-  <CodeSnippet mode="text" template={template} {...props} />
-);

@@ -78,6 +78,7 @@ module.exports = {
     },
     {
       fileName: 'nginx/conf.d/default.conf.template',
+      mode: 'nginx',
       template: 'frontend/NgixConf',
     },
   ],

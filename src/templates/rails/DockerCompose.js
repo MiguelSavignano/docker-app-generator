@@ -1,10 +1,4 @@
-import React from 'react';
-import { CodeSnippet } from '../CodeSnippet';
-
-require('codemirror/mode/yaml/yaml');
-
-export const template = ({ rails_worker }) => `
-version: "3.4"
+module.exports.default = `version: "3.4"
 services:
   web:
     build:
@@ -33,9 +27,7 @@ services:
       # https://github.com/mperham/sidekiq/wiki/Using-Redis
       REDIS_PROVIDER: REDISGREEN_URL
       REDISGREEN_URL: redis://redis:6379/0
-${
-  rails_worker
-    ? `
+<% if (rails_worker) { -%>
   worker:
     image: dockerize-rails
     container_name: worker
@@ -53,10 +45,8 @@ ${
       # sidekiq redis
       # https://github.com/mperham/sidekiq/wiki/Using-Redis
       REDIS_PROVIDER: REDISGREEN_URL
-      REDISGREEN_URL: redis://redis:6379/0`
-    : ``
-}
-
+      REDISGREEN_URL: redis://redis:6379/0
+<% } -%>
   db:
     image: postgres:9.5.9
     # ports:
@@ -108,9 +98,4 @@ volumes:
 
 # When run rails generator then you must run
 # sudo chown -R $USER:$USER .
-
 `;
-
-export default (props) => (
-  <CodeSnippet mode="yaml" template={template} {...props} />
-);

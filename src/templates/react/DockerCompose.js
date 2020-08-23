@@ -1,9 +1,4 @@
-import React from 'react';
-import { CodeSnippet } from '../CodeSnippet';
-
-require('codemirror/mode/yaml/yaml');
-
-export const template = () => `version: "3.4"
+module.exports.default = `version: "3.4"
 services:
   web:
     build:
@@ -14,7 +9,3 @@ services:
     environment:
       PORT: 8080
 `;
-
-export default (props) => (
-  <CodeSnippet mode="yaml" template={template} {...props} />
-);

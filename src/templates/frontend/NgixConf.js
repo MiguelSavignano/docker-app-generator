@@ -1,10 +1,4 @@
-import React from 'react';
-import { CodeSnippet } from '../CodeSnippet';
-
-require('codemirror/mode/nginx/nginx');
-
-export const template = () =>
-  `server {
+module.exports.default = `server {
   listen       \${PORT};
   server_name  localhost;
 
@@ -24,14 +18,4 @@ export const template = () =>
   location = /50x.html {
       root   /usr/share/nginx/html;
   }
-}
 `;
-
-export default (props) => (
-  <CodeSnippet
-    mode="nginx"
-    template={template}
-    {...props}
-    fileName="default.conf.template"
-  />
-);
