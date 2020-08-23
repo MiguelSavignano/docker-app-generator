@@ -54,10 +54,12 @@ module.exports = {
   tabs: [
     {
       fileName: 'Dockerfile',
+      mode: 'dockerfile',
       template: 'nodejs/Dockerfile',
     },
     {
       fileName: '.dockerignore',
+      mode: 'text',
       template: 'nodejs/DockerIgnore',
     },
   ],

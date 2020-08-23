@@ -1,7 +1,7 @@
 import React from 'react';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 
-import Templates from '../templates';
+import { CodeSnippetTemplate } from '../templates/CodeSnippetTemplate';
 import { useStateValue } from '../state';
 
 import 'react-tabs/style/react-tabs.css';
@@ -16,13 +16,9 @@ export const FilesTabs = () => {
           <Tab key={`${fileName}-${index}`}>{fileName}</Tab>
         ))}
       </TabList>
-      {appMode.tabs.map(({ template, ...rest }, index) => (
-        <TabPanel key={`${template}-${index}`}>
-          {React.createElement(
-            Templates[template] ||
-              (() => <h1>Not found template: {template}</h1>),
-            rest || {},
-          )}
+      {appMode.tabs.map(({ template: templateName, ...rest }, index) => (
+        <TabPanel key={`${templateName}-${index}`}>
+          <CodeSnippetTemplate {...{ templateName, ...rest }} />
         </TabPanel>
       ))}
     </Tabs>
