@@ -1,5 +1,4 @@
-module.exports.default = `
-# Ignore all files from .gitignore
+module.exports.default = `# Ignore all files from .gitignore
 # echo .git > .dockerignore && cat .gitignore >> .dockerignore
 .git
 
