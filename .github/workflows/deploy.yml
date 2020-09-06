@@ -29,7 +29,7 @@ jobs:
         with:
           args: container:login
 
-      - uses: devmasx/cached-docker-build-push@v0.2.1
+      - uses: devmasx/cached-docker-build-push@v0.2.2
         with:
           image_name: registry.heroku.com/$APP_NAME/web
           cache_stage_target: build
