@@ -30,7 +30,9 @@ jobs:
           push: true
 
       - name: Release to Heroku
-        run: ./heroku-release.sh ${{env.APP_NAME}}
+        uses: actions/heroku@master
+        with:
+          args: login && ./heroku-release.sh ${{env.APP_NAME}}
         env:
           HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
 
