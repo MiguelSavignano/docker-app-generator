@@ -24,13 +24,13 @@ jobs:
       - name: Docker build and push to heroku registry
         uses: devmasx/cached-docker-build-push@v0.2.2
         with:
-          image_name: registry.heroku.com/$APP_NAME/web
+          image_name: registry.heroku.com/${{env.APP_NAME}}/web
           cache_stage_target: build
           build_params: --build-arg=GCP_SA_KEY=${{secrets.GCP_SA_KEY}}
           push: true
 
       - name: Release to Heroku
-        run: ./heroku-release.sh
+        run: ./heroku-release.sh ${{env.APP_NAME}}
         env:
           HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
 
