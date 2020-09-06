@@ -2,7 +2,7 @@ module.exports = {
   name: 'react-create-app',
   label: 'React',
   description:
-    'Generate the necessary files to dockerize a <strong>React create app</strong>.',
+    'Generate the necessary files to create a Dockerfile and ngix configuration for <strong>React create app</strong>.',
   groups: [
     {
       title: 'Versions',
