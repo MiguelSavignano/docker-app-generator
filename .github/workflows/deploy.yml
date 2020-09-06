@@ -29,9 +29,8 @@ jobs:
           build_params: --build-arg=GCP_SA_KEY=${{secrets.GCP_SA_KEY}}
           push: true
 
-      - name: release
-        uses: actions/heroku@master
+      - name: Release to Heroku
+        run: ./heroku-release.sh
         env:
           HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
-        with:
-          args: container:release -a $APP_NAME web
+

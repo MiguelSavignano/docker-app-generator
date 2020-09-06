@@ -18,7 +18,8 @@ FROM google/cloud-sdk:latest as sync-assets
 
 ARG GCP_SA_KEY
 RUN echo $GCP_SA_KEY | base64 -d > key.json && \
-    gcloud auth activate-service-account --key-file key.json
+    gcloud auth activate-service-account --key-file key.json && \
+    rm -f key.json
 
 WORKDIR /app
 COPY --from=build /app/build /app/build
