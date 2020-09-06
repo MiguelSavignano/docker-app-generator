@@ -51,7 +51,7 @@ export const Navbar = () => {
   );
   return (
     <nav
-      className="navbar is-fixed-top is-link"
+      className="navbar is-fixed-top is-link test"
       role="navigation"
       aria-label="main navigation"
     >
