@@ -29,12 +29,12 @@ jobs:
         with:
           args: container:login
 
-      - name: push
-        uses: actions/heroku@master
-        env:
-          HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
+      - uses: devmasx/cached-docker-build-push@v0.2.1
         with:
-          args: container:push -a $APP_NAME web
+          image_name: registry.heroku.com/$APP_NAME/web
+          cache_stage_target: build
+          push: true
+          # build_params: --build-arg=NPM_TOKEN=${{secrets.NPM_TOKEN}}
 
       - name: release
         uses: actions/heroku@master
