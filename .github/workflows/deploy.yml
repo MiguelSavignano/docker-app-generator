@@ -14,14 +14,6 @@ jobs:
     steps:
       - uses: actions/checkout@master
 
-      - uses: GoogleCloudPlatform/github-actions/setup-gcloud@master
-        with:
-          version: "273.0.0"
-          # service_account_email: ${{ secrets.GCP_SA_EMAIL }}
-          service_account_key: ${{ secrets.GCP_SA_KEY }}
-
-      - run: gsutil ls gs://example-bucket105
-
       - name: login
         uses: actions/heroku@master
         env:
@@ -33,8 +25,8 @@ jobs:
         with:
           image_name: registry.heroku.com/$APP_NAME/web
           cache_stage_target: build
+          build_params: --build-arg=GCP_SA_KEY=${{secrets.GCP_SA_KEY}}
           push: true
-          # build_params: --build-arg=NPM_TOKEN=${{secrets.NPM_TOKEN}}
 
       - name: release
         uses: actions/heroku@master
