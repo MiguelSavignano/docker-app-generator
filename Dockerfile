@@ -13,13 +13,18 @@ COPY . .
 RUN npm run build
 
 FROM google/cloud-sdk:latest as sync-assets
+
+COPY ./key.json key.json
+RUN gcloud auth activate-service-account --key-file key.json && \
+    rm -f key.json
 # RUN --mount=type=secret,id=GCP_SA_KEY gcloud auth activate-service-account --key-file /run/secrets/GCP_SA_KEY
 # RUN gcloud auth activate-service-account --key-file /run/secrets/GCP_SA_KEY
+# COPY --from=build /app/build /app/build
 
-ARG GCP_SA_KEY
-RUN echo $GCP_SA_KEY | base64 -d > key.json && \
-    gcloud auth activate-service-account --key-file key.json && \
-    rm -f key.json
+# ARG GCP_SA_KEY
+# RUN echo $GCP_SA_KEY | base64 -d > key.json && \
+#     gcloud auth activate-service-account --key-file key.json && \
+#     rm -f key.json
 
 WORKDIR /app
 COPY --from=build /app/build /app/build

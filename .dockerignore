@@ -2,7 +2,7 @@
 # echo .git > .dockerignore && cat .gitignore >> .dockerignore
 
 .env
-key.json
+# key.json
 .git
 Dockerfile
 

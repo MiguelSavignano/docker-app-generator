@@ -2,7 +2,7 @@
 
 Single page application generate Dockerfile, docker-compose.yml, etc with diferents configurations
 
-[https://docker-generator.herokuapp.com/](https://docker-generator.herokuapp.com/)
+[http://docker.templateconf.com/](http://docker.templateconf.com/)
 
 ### Development
 
