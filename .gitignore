@@ -2,7 +2,9 @@
 key.json
 .env
 # dependencies
-/node_modules
+.env
+key.json
+node_modules
 /.pnp
 .pnp.js
 .npmrc
