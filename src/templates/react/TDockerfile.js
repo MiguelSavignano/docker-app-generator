@@ -15,7 +15,7 @@ COPY --from=build /app/build/ /usr/share/nginx/html/
 COPY nginx/conf.d/default.conf.template /etc/default.conf.template
 
 ENV PORT=80
-CMD /bin/bash -c "envsubst < /etc/default.conf.template > /etc/nginx/conf.d/default.conf && exec nginx -g 'daemon off;'
+CMD /bin/bash -c "envsubst '$$PORT' < /etc/default.conf.template > /etc/nginx/conf.d/default.conf && exec nginx -g 'daemon off;'
 <% } %>
 <% if (server_conf === 'nodejs') { %>
 FROM node:<%= node_version %>-alpine
