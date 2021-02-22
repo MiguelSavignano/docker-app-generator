@@ -2,7 +2,7 @@ module.exports = {
   name: 'nodejs',
   label: 'Nodejs',
   description:
-    'Generate the necessary files to dockerize a <strong>Nodejs server</strong>.',
+    'Generate the necessary files to create Dockerfile for <strong>Nodejs server</strong>.',
   groups: [
     {
       title: 'Versions',
