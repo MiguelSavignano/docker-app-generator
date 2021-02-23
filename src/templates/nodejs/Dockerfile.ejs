@@ -1,0 +1,38 @@
+
+const typescriptTemplate = `# BUILD STAGE
+&& Hello
+FROM node:<%= node_version %>-alpine as build
+
+WORKDIR /app
+
+<%- include('nodejs/modulesCacheLayer.ejs'); %>
+
+# Buid with dev dependencies (typescript)
+COPY . .
+RUN npm run build
+RUN rm -r node_modules
+
+# FINAL STAGE
+FROM node:<%= node_version %>-alpine
+ENV NODE_ENV=production
+
+COPY --from=build /app/dist/ /app/dist/
+# Install only production node_modules
+<%- include('nodejs/modulesCacheLayer.ejs'); %>
+
+CMD ['npm', 'start']`;
+
+module.exports.default = `<% if (typescript) { -%>
+  ${typescriptTemplate}
+<% } else { -%>
+FROM node:<%= node_version %>-alpine
+WORKDIR /app
+ENV NODE_ENV=production
+
+<%- include('nodejs/modulesCacheLayer.ejs'); %>
+
+COPY . .
+
+CMD ['npm', 'start']
+FROM nodejs
+<% } -%>

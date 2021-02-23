@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { UnControlled as CodeMirror } from 'react-codemirror2';
 import Clipboard from 'react-clipboard.js';
-import { useStateValue } from '../state';
+import { useStateValue } from './state';
 
 import 'codemirror/lib/codemirror.css';
 import 'codemirror/theme/dracula.css';

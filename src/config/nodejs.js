@@ -54,11 +54,11 @@ module.exports = {
   tabs: [
     {
       fileName: 'Dockerfile',
-      template: 'nodejs/Dockerfile',
+      template: 'nodejs/Dockerfile.ejs',
     },
     {
       fileName: '.dockerignore',
-      template: 'nodejs/DockerIgnore',
+      template: 'nodejs/dockerignore.ejs',
     },
   ],
 };

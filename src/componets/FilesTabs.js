@@ -1,7 +1,7 @@
 import React from 'react';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 
-import { CodeSnippetTemplate } from '../templates/CodeSnippetTemplate';
+import { CodeSnippetTemplate } from '../CodeSnippetTemplate';
 import { useStateValue } from '../state';
 
 import 'react-tabs/style/react-tabs.css';

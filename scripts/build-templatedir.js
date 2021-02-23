@@ -2,7 +2,7 @@ const fs = require('fs')
 const globby = require('globby');
 
 (async () => {
-  const paths = await globby(['src/templates/**/!(*.js|*.jsx)']);
+  const paths = await globby(['src/templates/**/*']);
   const result = paths.reduce((memo, path) => {
     const fileContent = fs.readFileSync(path, 'utf-8')
     memo[path] = Buffer.from(fileContent).toString('base64')
