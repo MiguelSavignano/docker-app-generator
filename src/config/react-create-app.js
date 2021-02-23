@@ -66,20 +66,20 @@ module.exports = {
   tabs: [
     {
       fileName: 'Dockerfile',
-      template: 'react/Dockerfile',
+      template: 'templates/react/Dockerfile',
     },
     {
       fileName: '.dockerignore',
-      template: 'react/dockerignore',
+      template: 'templates/react/dockerignore',
     },
     {
       fileName: 'docker-compose.yml',
-      template: 'react/docker-compose.yml',
+      template: 'templates/react/docker-compose.yml',
     },
     {
       fileName: 'nginx/conf.d/default.conf.template',
       mode: 'nginx',
-      template: 'react/nginx-default.conf',
+      template: 'templates/react/nginx-default.conf',
     },
   ],
 };

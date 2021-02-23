@@ -5,7 +5,7 @@ import { CodeSnippet } from './CodeSnippet';
 const base64 = require('base-64');
 const utf8 = require('utf8');
 const templates = require('./templates.json');
-const templateFolder = 'src/templates'
+const templateFolder = 'templates'
 const securityRender = {
   document: {},
   alert: () => {},
@@ -22,10 +22,12 @@ function decode64(text) {
 }
 
 export const CodeSnippetTemplate = ({ fileName, templateName, ...rest }) => {
-  const templateText = decode64(templates[`${templateFolder}/${templateName}`]);
-  if (!templateText) {
+  debugger
+  if (!templates[templateName]) {
     return <h1>Not found template: {templateName}</h1>;
   }
+
+  const templateText = decode64(templates[templateName])
   return (
     <CodeSnippet
       {...rest}
@@ -35,7 +37,7 @@ export const CodeSnippetTemplate = ({ fileName, templateName, ...rest }) => {
         if (/\.ejs/.test(templateName)) {
           const fnCallback = ejs.compile(templateText, { client: true });
           return fnCallback(viewData, null, function (path, _data) {
-             const text = templates[`${templateFolder}/${path}`]
+             const text = templates[path]
              return ejs.render(decode64(text), viewData)
           });
         } else {

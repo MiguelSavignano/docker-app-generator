@@ -5,7 +5,7 @@ FROM node:<%= node_version %>-alpine as build
 
 WORKDIR /app
 
-<%- include('nodejs/modulesCacheLayer.ejs'); %>
+<%- include('templates/nodejs/modulesCacheLayer.ejs'); %>
 
 # Buid with dev dependencies (typescript)
 COPY . .
@@ -18,7 +18,7 @@ ENV NODE_ENV=production
 
 COPY --from=build /app/dist/ /app/dist/
 # Install only production node_modules
-<%- include('nodejs/modulesCacheLayer.ejs'); %>
+<%- include('templates/nodejs/modulesCacheLayer.ejs'); %>
 
 CMD ['npm', 'start']`;
 
@@ -29,7 +29,7 @@ FROM node:<%= node_version %>-alpine
 WORKDIR /app
 ENV NODE_ENV=production
 
-<%- include('nodejs/modulesCacheLayer.ejs'); %>
+<%- include('templates/nodejs/modulesCacheLayer.ejs'); %>
 
 COPY . .
 
