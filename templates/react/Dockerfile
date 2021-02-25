@@ -1,3 +1,10 @@
+{{#if private_npm}}
+# docker build -t myApp --build-arg=NPM_TOKEN=$NPM_TOKEN .
+{{/if}}
+{{#unless private_npm}}
+# docker build -t myApp .
+{{/unless}}
+
 # BUILD STAGE
 FROM node:{{node_version}}-alpine as build
 

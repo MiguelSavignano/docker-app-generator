@@ -1,3 +1,8 @@
+<% if (private_npm) { %>
+# docker build -t myApp --build-arg=NPM_TOKEN=$NPM_TOKEN .
+<% } else { %>
+# docker build -t myApp .
+<% } %>
 <% if (typescript) { -%>
 # BUILD STAGE
 FROM node:<%= node_version %>-alpine as build

@@ -1,3 +1,22 @@
+<% if (private_npm && github_private) { -%>
+# docker build -t myApp \
+#  --build-arg=NPM_TOKEN=$NPM_TOKEN \
+#  --build-arg=GITHUB_TOKEN=$GITHUB_TOKEN \
+#  --build-arg=GITHUB_USERNAME=$GITHUB_USERNAME \
+#  .
+<% } else if(github_private) { -%>
+# docker build -t myApp \
+#  --build-arg=GITHUB_TOKEN=$GITHUB_TOKEN \
+#  --build-arg=GITHUB_USERNAME=$GITHUB_USERNAME \
+#  .
+<% } else if(private_npm) { -%>
+# docker build -t myApp \
+#  --build-arg=NPM_TOKEN=$NPM_TOKEN \
+#  .
+<% } else { -%>
+# docker build -t myApp .
+<% } -%>
+
 FROM ruby:<%= ruby_version %>-slim as builder
 # Install common libs
 RUN apt-get update -qq && apt-get install -y \\
@@ -75,4 +94,3 @@ COPY --from=builder --chown=deploy:deploy /usr/local/bundle /usr/local/bundle
 COPY --from=builder --chown=deploy:deploy /app /app
 
 CMD [ "sh", "-c", "bundle exec rake db:create db:migrate && bundle exec rails server -b 0.0.0.0" ]
-`;
