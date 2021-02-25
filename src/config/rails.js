@@ -92,15 +92,15 @@ module.exports = {
   tabs: [
     {
       fileName: 'Dockerfile',
-      template: 'rails/Dockerfile',
+      template: 'templates/rails/Dockerfile.ejs',
     },
     {
       fileName: 'docker-compose.yml',
-      template: 'rails/DockerCompose',
+      template: 'templates/rails/docker-compose.yml',
     },
     {
       fileName: '.dockerignore',
-      template: 'rails/DockerIgnore',
+      template: 'templates/rails/dockerignore',
     },
   ],
 };
