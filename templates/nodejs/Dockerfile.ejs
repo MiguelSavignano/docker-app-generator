@@ -1,6 +1,5 @@
-
-const typescriptTemplate = `# BUILD STAGE
-&& Hello
+<% if (typescript) { -%>
+# BUILD STAGE
 FROM node:<%= node_version %>-alpine as build
 
 WORKDIR /app
@@ -20,10 +19,7 @@ COPY --from=build /app/dist/ /app/dist/
 # Install only production node_modules
 <%- include('templates/nodejs/modulesCacheLayer.ejs'); %>
 
-CMD ['npm', 'start']`;
-
-module.exports.default = `<% if (typescript) { -%>
-  ${typescriptTemplate}
+CMD ['npm', 'start']
 <% } else { -%>
 FROM node:<%= node_version %>-alpine
 WORKDIR /app

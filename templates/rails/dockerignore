@@ -1,4 +1,4 @@
-module.exports.default = `# Ignore all files from .gitignore
+# Ignore all files from .gitignore
 # echo .git > .dockerignore && cat .gitignore >> .dockerignore
 .git
 
@@ -15,4 +15,3 @@ node_modules
 coverage
 yarn-error.log
 .DS_Store
-`;

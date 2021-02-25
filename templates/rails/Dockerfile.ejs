@@ -1,6 +1,4 @@
-const { nodeModulesCacheLayer } = require('../nodejs/TDockerfile');
-
-module.exports.default = `FROM ruby:<%= ruby_version %>-slim as builder
+FROM ruby:<%= ruby_version %>-slim as builder
 # Install common libs
 RUN apt-get update -qq && apt-get install -y \\
   build-essential vim git
@@ -45,7 +43,8 @@ ENV RAILS_ENV=$RAILS_ENV
 COPY Gemfile Gemfile.lock /app/
 RUN bundle install -j $(nproc)
 
-$nodeModulesCacheLayer
+<%- include('templates/nodejs/modulesCacheLayer.ejs'); %>
+
 COPY . .
 
 # Build production assets
