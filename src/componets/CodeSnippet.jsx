@@ -1,14 +1,12 @@
 import React, { useState } from 'react';
 import { UnControlled as CodeMirror } from 'react-codemirror2';
 import Clipboard from 'react-clipboard.js';
-import { useStateValue } from './state';
-
 import 'codemirror/lib/codemirror.css';
 import 'codemirror/theme/dracula.css';
-
 import 'codemirror/mode/nginx/nginx'
 import 'codemirror/mode/dockerfile/dockerfile'
 import 'codemirror/mode/yaml/yaml'
+import { useStateValue } from '../state';
 
 const modeMapping = (fileName) => {
   if (new RegExp('\.(yaml|yml)').test(fileName)){

@@ -1,10 +1,10 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useState } from 'react';
-import AppModes from './config';
-import { useStateValue, initializeFormData } from './state';
 import classNames from 'classnames';
-import './gh-fork-ribbon.css';
-import logoImage from './docker-logo.png';
+import AppModes from '../config';
+import { useStateValue, initializeFormData } from '../state';
+import '../assets/gh-fork-ribbon.css';
+import logoImage from '../assets/docker-logo.png';
 
 const Logo = () => (
   <img src={logoImage} alt="docker-logo" width={50} height={50} />

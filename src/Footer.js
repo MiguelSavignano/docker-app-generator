@@ -1,10 +1,6 @@
 import React from 'react';
-import { Title } from './Title';
-import { useState } from 'react';
-import { Navbar } from './Navbar';
-import { GroupQuestion } from './componets/Questions';
 
-export const Footer = ({ undefined }) => (
+export const Footer = () => (
   <div className="bg-white">
     <div className="max-w-screen-xl mx-auto py-12 px-4 overflow-hidden sm:px-6 lg:px-8">
       <div className="mt-8 flex justify-center">

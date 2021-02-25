@@ -4,7 +4,7 @@ import * as Handlebars from 'handlebars';
 import { CodeSnippet } from './CodeSnippet';
 const base64 = require('base-64');
 const utf8 = require('utf8');
-const templates = require('./templates.json');
+const templates = require('../templates.json');
 const templateFolder = 'templates'
 const securityRender = {
   document: {},

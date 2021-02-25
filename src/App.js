@@ -1,13 +1,12 @@
 import React from 'react';
+import 'bulma/css/bulma.css';
 import { Questions } from './componets/Questions';
 import { FilesTabs } from './componets/FilesTabs';
-import { Navbar } from './Navbar';
+import { Navbar } from './componets/Navbar';
 import AppModes from './config';
 import { StateProvider, initializeFormData, useStateValue } from './state';
-
-import './App.css';
-import 'bulma/css/bulma.css';
-import './vendor/font-awesome-4.7.0/css/font-awesome.css';
+import './assets/App.css';
+import './assets/vendor/font-awesome-4.7.0/css/font-awesome.css';
 
 function App() {
   const DEFAULT_APP = 'react-create-app';
