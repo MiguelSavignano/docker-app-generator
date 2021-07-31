@@ -22,7 +22,6 @@ function decode64(text) {
 }
 
 export const CodeSnippetTemplate = ({ fileName, templateName, ...rest }) => {
-  debugger
   if (!templates[templateName]) {
     return <h1>Not found template: {templateName}</h1>;
   }
