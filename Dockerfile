@@ -12,7 +12,7 @@ RUN npm ci
 COPY . .
 RUN npm run build:templates
 RUN npm run build
-RUN echo "v1"
+RUN echo "v2.0.0" > ./build/verstion.txt
 FROM google/cloud-sdk:latest as sync-assets
 
 ARG BUCKET_NAME=docker.templateconf.com
