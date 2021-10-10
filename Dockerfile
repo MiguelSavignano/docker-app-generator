@@ -10,6 +10,7 @@ COPY package.json package-lock.json ./
 RUN npm ci
 
 COPY . .
+RUN npm run build:templates
 RUN npm run build
 
 FROM google/cloud-sdk:latest as sync-assets
