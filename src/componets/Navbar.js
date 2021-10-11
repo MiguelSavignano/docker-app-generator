@@ -46,9 +46,6 @@ export const Navbar = () => {
     dispatch({ form, appMode: AppModes[name] });
   };
 
-  Object.entries(AppModes).forEach(([file, { name, label }]) =>
-    console.log('NavbarItems', { name, label }),
-  );
   return (
     <nav
       className="navbar is-fixed-top is-link test"

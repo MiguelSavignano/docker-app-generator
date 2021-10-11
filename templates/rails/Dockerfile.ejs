@@ -62,7 +62,32 @@ ENV RAILS_ENV=$RAILS_ENV
 COPY Gemfile Gemfile.lock /app/
 RUN bundle install -j $(nproc)
 
-<%- include('templates/nodejs/modulesCacheLayer.ejs'); %>
+# Node modules cache layer
+<% if (javascrit_package_manager === 'npm' && private_npm) { -%>
+ARG NPM_TOKEN
+COPY package.json package-lock.json ./
+# keep NPM_TOKEN private
+RUN echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > /app/.npmrc && \
+  npm ci && \
+  rm -f .npmrc;
+<% } -%>
+<% if (javascrit_package_manager === 'npm' && !private_npm) { -%>
+COPY package.json package-lock.json ./
+RUN npm ci
+<% } -%>
+<% if (javascrit_package_manager === 'yarn' && private_npm) { -%>
+ARG NPM_TOKEN
+COPY package.json yarn.lock ./
+# keep NPM_TOKEN private
+RUN echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > /app/.npmrc && \
+  yarn install --pure-lockfile && \\
+  rm -f .npmrc;
+<% } -%>
+<% if (javascrit_package_manager === 'yarn' && !private_npm) { -%>
+COPY package.json yarn.lock ./
+RUN yarn install --pure-lockfile
+<% } -%>
+
 
 COPY . .
 
