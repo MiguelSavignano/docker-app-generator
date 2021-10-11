@@ -3,8 +3,9 @@
   "version": "0.2.0",
   "private": true,
   "scripts": {
+    "start:prod": "npx serve build",
     "start": "node scripts/start.js",
-    "build": "node scripts/build.js",
+    "build": "npm run build:templates && node scripts/build.js",
     "build:templates": "node scripts/build-templatedir.js > src/templates.json",
     "test": "node scripts/test.js"
   },
@@ -68,6 +69,7 @@
     "resolve-url-loader": "3.1.1",
     "sass-loader": "8.0.2",
     "semver": "6.3.0",
+    "serve": "^12.0.1",
     "style-loader": "0.23.1",
     "terser-webpack-plugin": "2.3.5",
     "ts-pnp": "1.1.6",

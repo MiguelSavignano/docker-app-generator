@@ -34,11 +34,7 @@ export const CodeSnippetTemplate = ({ fileName, templateName, ...rest }) => {
       template={(data) => {
         const viewData = { ...data, ...securityRender };
         if (/\.ejs/.test(templateName)) {
-          const fnCallback = ejs.compile(templateText, { client: true });
-          return fnCallback(viewData, null, function (path, _data) {
-             const text = templates[path]
-             return ejs.render(decode64(text), viewData)
-          });
+          return ejs.render(templateText, viewData);
         } else {
           return Handlebars.compile(templateText)(viewData);
         }
@@ -46,3 +42,6 @@ export const CodeSnippetTemplate = ({ fileName, templateName, ...rest }) => {
     />
   );
 };
+
+
+// ejs client render with include
