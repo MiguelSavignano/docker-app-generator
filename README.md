@@ -28,3 +28,13 @@ Use includes with `<%-` Example:
 ```
 <%- include('templates/nodejs/modulesCacheLayer.ejs'); %>
 ```
+
+## Deployment
+
+Upload to GCP storage as static website [Documentation](https://cloud.google.com/storage/docs/hosting-static-website)
+
+Ensure have a key.json with storage permissions to upload.
+
+```
+docker build .
+```
