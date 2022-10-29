@@ -2,8 +2,13 @@
 
 Single page application generate Dockerfile, docker-compose.yml, etc with diferents configurations
 
-[http://docker.templateconf.com/](http://docker.templateconf.com/)
+## Docker image
 
+```
+docker run --rm -p 8080:80 devmasx/docker-app-generator
+```
+
+[http://localhost:8080/](http://localhost:8080/)
 ### Development
 
 ```
