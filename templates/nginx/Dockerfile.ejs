@@ -1,0 +1,5 @@
+FROM nginx:1.15
+COPY <%= build_folder %> /usr/share/nginx/html/
+COPY nginx/conf.d/default.conf /etc/default.conf
+# ENV PORT=80
+# CMD nginx -g 'daemon off;'
