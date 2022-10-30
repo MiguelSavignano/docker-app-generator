@@ -1,5 +1,6 @@
 import React from 'react';
 import { useStateValue } from '../state';
+import nodeTags from '../docker-hub-tags/node-alpine.json'
 
 const Question = ({ name, title, type, value }) => {
   const [{ form }, dispatch] = useStateValue();
@@ -13,22 +14,37 @@ const Question = ({ name, title, type, value }) => {
   return (
     <li>
       <p>{title}</p>
-      <input
-        {...props}
-        type={type}
-        name={name}
-        checked={type === 'checkbox' ? form[name] : value === form[name]}
-        onChange={(event) => {
-          const input = event.target;
-          dispatch({
-            form: {
-              ...form,
-              [input.name]: type === 'checkbox' ? !!input.checked : input.value,
-            },
-          });
-        }}
-        className="inputText"
-      />
+      { type === 'select'
+      ? <select name={name} onChange={(event) => {
+        const input = event.target;
+        dispatch({
+          form: {
+            ...form,
+            [input.name]: input.value,
+          },
+        });
+      }}>
+        {nodeTags.map(name => {
+          return <option value={name} >{name}</option>
+        })}
+      </select>
+      : <input
+            {...props}
+            type={type}
+            name={name}
+            checked={type === 'checkbox' ? form[name] : value === form[name]}
+            onChange={(event) => {
+              const input = event.target;
+              dispatch({
+                form: {
+                  ...form,
+                  [input.name]: type === 'checkbox' ? !!input.checked : input.value,
+                },
+              });
+            }}
+            className="inputText"
+          />}
+
     </li>
   );
 };

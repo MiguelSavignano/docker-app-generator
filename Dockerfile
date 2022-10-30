@@ -7,9 +7,8 @@ COPY package.json package-lock.json ./
 RUN npm ci
 
 COPY . .
-RUN npm run build:templates
 RUN npm run build
-RUN echo "v2.0.0" > ./build/verstion.txt
+RUN echo "v2.1.0" > ./build/verstion.txt
 
 FROM nginx:1.15
 COPY --from=build /app/build/ /usr/share/nginx/html/

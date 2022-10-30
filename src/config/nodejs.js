@@ -10,7 +10,7 @@ module.exports = {
         {
           title: 'Nodejs version',
           name: 'node_version',
-          defaultValue: '10.16.3',
+          defaultValue: '14-alpine',
           type: 'text',
         },
       ],
