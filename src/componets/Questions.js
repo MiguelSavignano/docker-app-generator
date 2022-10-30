@@ -1,6 +1,6 @@
 import React from 'react';
 import { useStateValue } from '../state';
-import nodeTags from '../node-tags.json'
+import nodeTags from '../docker-hub-tags/node-alpine.json'
 
 const Question = ({ name, title, type, value }) => {
   const [{ form }, dispatch] = useStateValue();
@@ -15,7 +15,15 @@ const Question = ({ name, title, type, value }) => {
     <li>
       <p>{title}</p>
       { type === 'select'
-      ? <select>
+      ? <select name={name} onChange={(event) => {
+        const input = event.target;
+        dispatch({
+          form: {
+            ...form,
+            [input.name]: input.value,
+          },
+        });
+      }}>
         {nodeTags.map(name => {
           return <option value={name} >{name}</option>
         })}

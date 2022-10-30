@@ -6,7 +6,7 @@
 {{/unless}}
 
 # BUILD STAGE
-FROM node:{{node_version}}-alpine as build
+FROM node:{{node_version}} as build
 
 WORKDIR /app
 # Node modules cache layer
