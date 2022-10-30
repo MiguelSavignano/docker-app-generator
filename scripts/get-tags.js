@@ -27,7 +27,7 @@ class DockerHubAPI {
 
 async function run () {
   const tags = await new DockerHubAPI('node').getTags()
-  fs.writeFileSync('src/node-tags.json', JSON.stringify(tags.sort(), null, 2))
+  fs.writeFileSync('src/docker-hub-tags/node-alpine.json', JSON.stringify(tags.sort(), null, 2))
 }
 
 run()
