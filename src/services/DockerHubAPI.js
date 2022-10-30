@@ -1,7 +1,7 @@
 
-const axios = require('axios')
+import axios from 'axios'
 
-class DockerHubAPI {
+export class DockerHubAPI {
   constructor(repositoryName) {
     this.repositoryName = repositoryName
     this.allTags = []
@@ -24,4 +24,3 @@ class DockerHubAPI {
   }
 }
 
-module.exports = {DockerHubAPI}

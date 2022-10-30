@@ -13,22 +13,28 @@ const Question = ({ name, title, type, value }) => {
   return (
     <li>
       <p>{title}</p>
-      <input
-        {...props}
-        type={type}
-        name={name}
-        checked={type === 'checkbox' ? form[name] : value === form[name]}
-        onChange={(event) => {
-          const input = event.target;
-          dispatch({
-            form: {
-              ...form,
-              [input.name]: type === 'checkbox' ? !!input.checked : input.value,
-            },
-          });
-        }}
-        className="inputText"
-      />
+      { type === 'select'
+      ? <select>
+         <option value="1" >1</option>
+         <option value="2" >2</option>
+      </select>
+      : <input
+            {...props}
+            type={type}
+            name={name}
+            checked={type === 'checkbox' ? form[name] : value === form[name]}
+            onChange={(event) => {
+              const input = event.target;
+              dispatch({
+                form: {
+                  ...form,
+                  [input.name]: type === 'checkbox' ? !!input.checked : input.value,
+                },
+              });
+            }}
+            className="inputText"
+          />}
+
     </li>
   );
 };
