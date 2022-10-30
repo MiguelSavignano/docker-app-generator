@@ -1,5 +1,6 @@
 import React from 'react';
 import { useStateValue } from '../state';
+import nodeTags from '../node-tags.json'
 
 const Question = ({ name, title, type, value }) => {
   const [{ form }, dispatch] = useStateValue();
@@ -15,8 +16,9 @@ const Question = ({ name, title, type, value }) => {
       <p>{title}</p>
       { type === 'select'
       ? <select>
-         <option value="1" >1</option>
-         <option value="2" >2</option>
+        {nodeTags.map(name => {
+          return <option value={name} >{name}</option>
+        })}
       </select>
       : <input
             {...props}
