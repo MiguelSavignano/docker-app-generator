@@ -25,9 +25,26 @@ function isAlpine({name}) {
   return type.includes("alpine")
 }
 
+function validVersion({version}) {
+  const [major, min, _] = version.split('.')
+  return parseInt(major) > 1
+}
+
+function isSlim({name}) {
+  const [version, type] = name.split('-')
+  if(!validVersion({version})) return false
+  if (!type) return false
+  return type.includes("slim")
+}
+
+async function getTagsAndWriteFile({repositoryName, filterFnc, fileName}) {
+  const tags = await new DockerHubAPI(repositoryName).getTags({filterFnc})
+  fs.writeFileSync(`src/select-options/${fileName}.json`, JSON.stringify(tags.sort(), null, 2))
+}
+
 async function run () {
-  const tags = await new DockerHubAPI('node').getTags({filterFnc: isAlpine})
-  fs.writeFileSync('src/select-options/node-alpine.json', JSON.stringify(tags.sort(), null, 2))
+  getTagsAndWriteFile({repositoryName: 'node', filterFnc: isAlpine, fileName: 'node-alpine'})
+  getTagsAndWriteFile({repositoryName: 'ruby', filterFnc: isSlim, fileName: 'ruby-slim'})
 }
 
 run()
