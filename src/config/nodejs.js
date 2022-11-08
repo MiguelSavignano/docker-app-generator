@@ -11,7 +11,8 @@ module.exports = {
           title: 'Nodejs version',
           name: 'node_version',
           defaultValue: '14-alpine',
-          type: 'text',
+          type: 'select',
+          selectOptions: 'node-alpine'
         },
       ],
     },
