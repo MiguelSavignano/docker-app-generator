@@ -1,8 +1,8 @@
 import React from 'react';
 import { useStateValue } from '../state';
-import nodeTags from '../docker-hub-tags/node-alpine.json'
+import { options } from '../select-options'
 
-const Question = ({ name, title, type, value }) => {
+const Question = ({ name, title, type, value, selectOptions }) => {
   const [{ form }, dispatch] = useStateValue();
   const props = {};
   if (type === 'radio') {
@@ -24,7 +24,7 @@ const Question = ({ name, title, type, value }) => {
           },
         });
       }}>
-        {nodeTags.map(name => {
+        {options[selectOptions].map(name => {
           return <option value={name} >{name}</option>
         })}
       </select>
