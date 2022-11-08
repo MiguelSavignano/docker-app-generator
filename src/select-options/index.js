@@ -1,5 +1,4 @@
-import nodeAlpineTags from './node-alpine.json';
-
 export const options = {
-  'node-alpine': nodeAlpineTags
+  'node-alpine': require('./node-alpine.json'),
+  'ruby-slim': require('./ruby-slim.json'),
 }

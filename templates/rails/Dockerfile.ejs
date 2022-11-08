@@ -17,7 +17,7 @@
 # docker build -t myApp .
 <% } -%>
 
-FROM ruby:<%= ruby_version %>-slim as builder
+FROM ruby:<%= ruby_version %> as builder
 # Install common libs
 RUN apt-get update -qq && apt-get install -y \\
   build-essential vim git
@@ -36,11 +36,11 @@ RUN apt-get install -y nodejs npm
 <% } -%>
 
 <% if (javascrit_package_manager === 'yarn' || javascrit_package_manager === 'nodejs') { -%>
-COPY --from=node:<%= node_version %>-slim /usr/local/bin/ /usr/local/bin/
-COPY --from=node:<%= node_version %>-slim /usr/local/lib/ /usr/local/lib/
+COPY --from=node:<%= node_version %> /usr/local/bin/ /usr/local/bin/
+COPY --from=node:<%= node_version %> /usr/local/lib/ /usr/local/lib/
 <% } -%>
 <% if (javascrit_package_manager === 'yarn') { -%>
-COPY --from=node:<%= node_version %>-slim /opt/ /opt/
+COPY --from=node:<%= node_version %> /opt/ /opt/
 <% } -%>
 WORKDIR /app
 <% if (github_private) { -%>
@@ -100,7 +100,7 @@ RUN rm -r node_modules
 # **********************************
 # ******Final production Stage******
 # **********************************
-FROM ruby:<%= ruby_version %>-slim
+FROM ruby:<%= ruby_version %>
 
 ENV NODE_ENV=production RAILS_ENV=production RAILS_LOG_TO_STDOUT=true
 

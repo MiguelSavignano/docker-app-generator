@@ -10,8 +10,9 @@ module.exports = {
         {
           title: 'Ruby version',
           name: 'ruby_version',
-          defaultValue: '2.5.6',
-          type: 'text',
+          defaultValue: '2.5.6-slim',
+          type: 'select',
+          selectOptions: 'ruby-slim'
         },
         {
           title: 'Nodejs version',
