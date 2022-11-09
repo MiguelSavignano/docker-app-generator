@@ -15,7 +15,7 @@ const Question = ({ name, title, type, value, selectOptions }) => {
     <li>
       <p>{title}</p>
       { type === 'select'
-      ? <select name={name} onChange={(event) => {
+      ? <select className='select' name={name} onChange={(event) => {
         const input = event.target;
         dispatch({
           form: {
