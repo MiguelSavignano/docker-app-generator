@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "/static/css/main.bb96a743.chunk.css",
+    "main.js": "/static/js/main.5f242cd7.chunk.js",
+    "main.js.map": "/static/js/main.5f242cd7.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.f3bce04e.js",
+    "runtime-main.js.map": "/static/js/runtime-main.f3bce04e.js.map",
+    "static/css/2.ea2327b6.chunk.css": "/static/css/2.ea2327b6.chunk.css",
+    "static/js/2.0a1ae957.chunk.js": "/static/js/2.0a1ae957.chunk.js",
+    "static/js/2.0a1ae957.chunk.js.map": "/static/js/2.0a1ae957.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.dc69dcbf52a927d5256c5efcb29da45d.js": "/precache-manifest.dc69dcbf52a927d5256c5efcb29da45d.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/2.ea2327b6.chunk.css.map": "/static/css/2.ea2327b6.chunk.css.map",
+    "static/css/main.bb96a743.chunk.css.map": "/static/css/main.bb96a743.chunk.css.map",
+    "static/js/2.0a1ae957.chunk.js.LICENSE.txt": "/static/js/2.0a1ae957.chunk.js.LICENSE.txt",
+    "static/media/docker-logo.png": "/static/media/docker-logo.8817cfca.png",
+    "static/media/font-awesome.css": "/static/media/fontawesome-webfont.fee66e71.woff"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.f3bce04e.js",
+    "static/css/2.ea2327b6.chunk.css",
+    "static/js/2.0a1ae957.chunk.js",
+    "static/css/main.bb96a743.chunk.css",
+    "static/js/main.5f242cd7.chunk.js"
+  ]
+}
