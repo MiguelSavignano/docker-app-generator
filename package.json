@@ -1,7 +1,8 @@
 {
   "name": "website",
   "version": "0.2.0",
-  "private": true,
+  "private": false,
+  "homepage": "https://miguelsavignano.github.io/docker-app-generator",
   "scripts": {
     "start:prod": "npx serve build",
     "start": "node scripts/start.js",

@@ -12,6 +12,7 @@ jobs:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
+      PUBLIC_URL: https://miguelsavignano.github.io/docker-app-generator
     runs-on: ubuntu-latest
     steps:
       - name: Checkout 🛎️
