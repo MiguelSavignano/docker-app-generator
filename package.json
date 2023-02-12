@@ -6,7 +6,7 @@
   "scripts": {
     "start:prod": "npx serve build",
     "start": "node scripts/start.js",
-    "dev": "node scripts/start.js",
+    "dev": "npm run build:templates && node scripts/start.js",
     "build": "npm run build:templates && node scripts/build.js",
     "build:templates": "node scripts/build-templatedir.js > src/templates.json",
     "build:docker-tags": "node scripts/get-tags",
