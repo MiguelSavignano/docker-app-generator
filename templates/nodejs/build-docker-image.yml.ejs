@@ -1,0 +1,39 @@
+name: Build Docker image
+
+on:
+  push:
+    branches: [ "master" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      IMAGE_NAME: <%= docker_image_name %>
+    steps:
+    - uses: actions/checkout@v3
+    - name: Login to Docker Hub
+    uses: docker/login-action@v2 # More info: https://github.com/docker/login-action
+    with:
+        # Set secrets in Github Actions
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_TOKEN }}
+    - name: Build the Docker image
+      run: |
+<% if (!typescript) { -%>
+        docker pull $IMAGE_NAME || exit 0
+        docker build --cache-from=$IMAGE_NAME -t $IMAGE_NAME:latest -t $IMAGE_NAME:$GITHUB_SHA .
+        docker push $IMAGE_NAME:$GITHUB_SHA
+        docker push $IMAGE_NAME
+<% } else { -%>
+        # ** Pull latest cache layer **
+        docker pull $IMAGE_NAME || exit 0
+        docker pull $IMAGE_NAME:cache-builder || exit 0
+        # ** Build cache layer **
+        docker build --cache-from=$IMAGE_NAME:cache-builder -t $IMAGE_NAME:cache-builder --target builder .
+        # ** Build latest layer **
+        docker build --cache-from=$IMAGE_NAME:cache-builder --cache-from=$IMAGE_NAME -t $IMAGE_NAME -t $IMAGE_NAME:$GITHUB_SHA .
+        # ** Push all images **
+        docker push $IMAGE_NAME:cache-builder
+        docker push $IMAGE_NAME:$GITHUB_SHA
+        docker push $IMAGE_NAME
+<% } -%>

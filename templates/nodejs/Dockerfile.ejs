@@ -1,7 +1,7 @@
 <% if (private_npm) { %>
-# docker build -t myApp --build-arg=NPM_TOKEN=$NPM_TOKEN .
+# docker build -t <%= docker_image_name %> --build-arg=NPM_TOKEN=$NPM_TOKEN .
 <% } else { %>
-# docker build -t myApp .
+# docker build -t <%= docker_image_name %> .
 <% } %>
 <% if (typescript) { -%>
 # BUILD STAGE
