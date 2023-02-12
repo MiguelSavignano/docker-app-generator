@@ -49,6 +49,12 @@ module.exports = {
           checked: false,
           type: 'checkbox',
         },
+        {
+          name: 'docker_image_name',
+          title: 'Docker image name',
+          type: 'text',
+          defaultValue: 'docker_user/my_app'
+        },
       ],
     },
   ],
@@ -60,6 +66,10 @@ module.exports = {
     {
       fileName: '.dockerignore',
       template: 'templates/nodejs/dockerignore.ejs',
+    },
+    {
+      fileName: '.github/workflows/build-docker-image.yml',
+      template: 'templates/nodejs/build-docker-image.yml.ejs',
     },
   ],
 };
