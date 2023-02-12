@@ -1,8 +1,8 @@
 {{#if private_npm}}
-# docker build -t myApp --build-arg=NPM_TOKEN=$NPM_TOKEN .
+# docker build -t my-app --build-arg=NPM_TOKEN=$NPM_TOKEN .
 {{/if}}
 {{#unless private_npm}}
-# docker build -t myApp .
+# docker build -t my-app .
 {{/unless}}
 
 # BUILD STAGE

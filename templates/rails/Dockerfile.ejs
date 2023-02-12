@@ -1,20 +1,20 @@
 <% if (private_npm && github_private) { -%>
-# docker build -t myApp \
+# docker build -t my-app \
 #  --build-arg=NPM_TOKEN=$NPM_TOKEN \
 #  --build-arg=GITHUB_TOKEN=$GITHUB_TOKEN \
 #  --build-arg=GITHUB_USERNAME=$GITHUB_USERNAME \
 #  .
 <% } else if(github_private) { -%>
-# docker build -t myApp \
+# docker build -t my-app \
 #  --build-arg=GITHUB_TOKEN=$GITHUB_TOKEN \
 #  --build-arg=GITHUB_USERNAME=$GITHUB_USERNAME \
 #  .
 <% } else if(private_npm) { -%>
-# docker build -t myApp \
+# docker build -t my-app \
 #  --build-arg=NPM_TOKEN=$NPM_TOKEN \
 #  .
 <% } else { -%>
-# docker build -t myApp .
+# docker build -t my-app .
 <% } -%>
 
 FROM ruby:<%= ruby_version %> as builder
