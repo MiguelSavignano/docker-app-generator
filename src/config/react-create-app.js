@@ -82,5 +82,10 @@ module.exports = {
       mode: 'nginx',
       template: 'templates/react/nginx-default.conf',
     },
+    {
+      fileName: '.github/workflows/deploy-github-page.yml',
+      mode: 'nginx',
+      template: 'templates/react/deploy-github-page.yml',
+    },
   ],
 };
