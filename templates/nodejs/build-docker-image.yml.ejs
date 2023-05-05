@@ -26,8 +26,8 @@ jobs:
         docker push $IMAGE_NAME
 <% } else { -%>
         # ** Pull latest cache layer **
-        docker pull $IMAGE_NAME || exit 0
-        docker pull $IMAGE_NAME:cache-builder || exit 0
+        docker pull $IMAGE_NAME || echo "Skip pull ${IMAGE_NAME}"
+        docker pull $IMAGE_NAME:cache-builder || echo "Skip pull ${IMAGE_NAME}:cache-builder"
         # ** Build cache layer **
         docker build --cache-from=$IMAGE_NAME:cache-builder -t $IMAGE_NAME:cache-builder --target builder .
         # ** Build latest layer **
