@@ -5,7 +5,7 @@
 <% } %>
 <% if (typescript) { -%>
 # BUILD STAGE
-FROM node:<%= node_version %> as build
+FROM node:<%= node_version %> as builder
 
 WORKDIR /app
 
