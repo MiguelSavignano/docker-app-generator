@@ -44,6 +44,7 @@ RUN rm -r node_modules
 # FINAL STAGE
 FROM node:<%= node_version %>
 ENV NODE_ENV=production
+WORKDIR /app
 
 COPY --from=build /app/dist/ /app/dist/
 # Install only production node_modules
