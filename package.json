@@ -154,5 +154,20 @@
     "presets": [
       "react-app"
     ]
+  },
+  "overrides": {
+    "braces": "^3.0.3",
+    "micromatch": "^4.0.8",
+    "nth-check": "^2.0.1",
+    "minimatch": "^3.1.4",
+    "serialize-javascript": "^6.0.2",
+    "cross-spawn": "^7.0.6",
+    "loader-utils": "^2.0.4",
+    "immer": "^9.0.21",
+    "shell-quote": "^1.8.3",
+    "flatted": "^3.4.2",
+    "form-data": "^2.5.4",
+    "path-to-regexp": "^3.3.0",
+    "node-forge": "^1.4.0"
   }
 }
